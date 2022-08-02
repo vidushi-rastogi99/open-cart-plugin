@@ -5,7 +5,7 @@ class Database extends \Opencart\System\Engine\Controller {
 		echo DIR_OPENCART;
 		echo nl2br("\n.....000.....\n");
 		echo filesize(DIR_OPENCART . 'config.php');
-		if (is_file(DIR_OPENCART . 'config.php') && filesize(DIR_OPENCART . 'config.php') > 0) {
+		if (is_file(DIR_OPENCART . 'config.php') && filesize(DIR_OPENCART . 'config.php') > 2) {
 			$config = [];
 			echo nl2br("\n.....111.....\n");
 			echo DIR_OPENCART;
