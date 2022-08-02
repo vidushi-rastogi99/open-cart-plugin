@@ -2,24 +2,29 @@
 namespace Opencart\Install\Controller\Startup;
 class Database extends \Opencart\System\Engine\Controller {
 	public function index(): void {
-		echo -e "${DIR_OPENCART} \n";
+		echo DIR_OPENCART;
 		if (is_file(DIR_OPENCART . 'config.php')) {
 			$config = [];
-			echo -e "${DIR_OPENCART} \n";
+			echo nl2br("\n.....111.....\n");
+			echo DIR_OPENCART;
 			$lines = file(DIR_OPENCART . 'config.php');
+			echo nl2br("\n.....222.....\n");
 			echo '<pre>'; print_r($lines); echo '</pre>';
 			foreach ($lines as $number => $line) {
-				echo -e "$line \n";
+				echo nl2br("\n.....333.....\n");
+				echo $line;
 				if (strpos(strtoupper($line), 'DB_') !== false && preg_match('/define\(\'(.*)\',\s+\'(.*)\'\)/', $line, $match, PREG_OFFSET_CAPTURE)) {
 					define($match[1][0], $match[2][0]);
 				}
 			}
 
 			if (defined('DB_PORT')) {
-				echo -e "${DB_PORT} \n";
+				echo nl2br("\n.....444.....\n");
+				echo DB_PORT;
 				$port = DB_PORT;
 			} else {
-				echo -e '\nNo port\n';
+				echo nl2br("\n.....555.....\n");
+				echo 'No port';
 				$port = ini_get('mysqli.default_port');
 			}
 			
